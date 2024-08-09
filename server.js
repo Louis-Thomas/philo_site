@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const { CallTracker } = require('assert');
 
 const password = "Bruh";
 
@@ -139,6 +140,20 @@ app.put('/update', async function(req, res) {
     } else { res.status(401).send("Unauthorized"); }
 })
 
+app.delete('/delete', async function(req,res) {
+    const data = req.body;
+        console.log(data);
+
+    if(data.password == password) {
+        try{
+            const collection = await connectiontoDatabase();
+            const result = await collection.philo_article.findOne({title: data.name});
+                console.log(result);
+            await deleteArticle(result.id);
+            res.status(200);
+        } catch(error) { console.log(error); }
+    } else { res.status(401).send("Unauthorized"); }
+})
 
 // Create An Article:
 async function insertArticle(data) {

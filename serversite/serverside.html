@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Protected Button</title>
+</head>
+<body>  
+
+    <div class="edit_box" id="edit_box" style = "display: none"> 
+        <h3>EDIT +</h3>
+        <button class="edit_article" id="edit_article" onclick="toggleVis(true)">Edit +</button>
+        <button class="hide_edit_article" id="hide_edit_article" onclick="toggleVis(false)">Hide -</button>
+
+        <div class="submission_box" id="submission_box", style = "display: none;">
+
+            <form id="Form">
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="id">ID:</label>  
+                    <div class="col-md-4">
+                        <input id="id" name="id" type="text" placeholder="ids" class="form-control input-md">
+                        <span class="help-block">input id to update and delete</span>  
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Password">Password:</label>  
+                    <div class="col-md-4">
+                        <input id="password" name="password" type="text" placeholder="passwords" class="form-control input-md">
+                        <span class="help-block">input password</span>  
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="title">Title:</label>  
+                    <div class="col-md-4">
+                        <input id="title" name="title" type="text" placeholder="Sample Name" class="form-control input-md">
+                        <span class="help-block">input title and password to get ID's</span>  
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Authors">Author(s):</label>  
+                    <div class="col-md-4">
+                        <input id="authors" name="authors" type="text" placeholder="Name" class="form-control input-md">
+                        <span class="help-block">input name(s) exactly like 'Joe Bloggs' or 'Joe Bloggs, Joe Smith, ...' </span>  
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="filepath">File Path:</label>  
+                    <div class="col-md-4">
+                        <input id="filepath" name="filepath" type="text" placeholder="Filepath Name" class="form-control input-md">
+                        <span class="help-block">file to be put into pdfviewer/..., use console to see if there is clashes</span>  
+                    </div>
+                </div>            
+            </form>
+
+            <button class="insertArticle" id="insertArticle" onclick="CreateArticle()" >Create</button>
+            <button class="insertArticle" id="insertArticle" onclick="FindArticle()">Find</button>
+            <button class="updateArticle" id="updateArticle" onclick="UpdateArticle()">Update</button>
+            <button class="deleteArticle" id="deleteArticle" onclick="DeleteArticle()">Delete</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="application/javascript" src="serverside.js"></script>
+</body>
+</html>
